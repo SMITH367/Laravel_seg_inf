@@ -18,10 +18,9 @@ use App\Http\Controllers\UsersController;
 Route::post("/register",[UsersController::class,"register"]);
 Route::post("/login",[UsersController::class,"login"]);
 
-
 Route::group(['middleware' => ['auth:sanctum']], function(){
-    Route::get('profile', [UsersController::class, 'userProfile']);
-    Route::post('logout', [UsersController::class, 'logout']);
+    Route::get('/profile', [UsersController::class, 'userProfile']);
+    Route::post('/logout', [UsersController::class, 'logout']);
 });
 
 Route::apiResource('/todo',todosController::class);
